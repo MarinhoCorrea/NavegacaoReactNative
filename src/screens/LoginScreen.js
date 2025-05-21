@@ -1,49 +1,49 @@
 import React from "react";
-import { View, Text, Button, StyleSheet, Dimensions,TextInput } from "react-native";
+import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity } from "react-native";
 
 const windowWidth = Dimensions.get('window').width;
 
 export default function LoginScreen({ navigation }) {
-    const[nome, setNome] = React.useState("");
-    const[senha, setSenha] = React.useState("");
-function validacao(nome, senha) {
-    if (senha.length == 6 && senha.length == 6 && nome.length > 0) {
-        navigation.navigate("Home");
+    const [nome, setNome] = React.useState("");
+    const [senha, setSenha] = React.useState("");
+    function validacao() {
+        if (senha.length == 6 && nome.length > 0) {
+            navigation.navigate("Home");
+        }
+        if (senha.length == 6 && nome.length == 0) {
+            alert("Nome não pode ser vazio");
+        }
+        if (senha.length != 6 && nome.length > 0) {
+            alert("Senha deve ter 6 números");
+        }
+        if (senha.length == 0 && nome.length == 0) {
+            alert("Nome e senha não podem ser vazios");
+        }
     }
-//if (/^\d{6}$/.test(senha) && nome.length > 0) {
-//    navigation.navigate("Home");
-//}
-    else {
-        alert("Senha deve conter 6 digitos"); 
-    }
-    
-}
-  return (
-    <View style={styles.container}>
-        <Text style={styles.title}>Login Screen</Text>
-        <TextInput
-            style={styles.input}
-            placeholder="Nome"
-            value={nome}
-            onChangeText={setNome}
-        />
-        <TextInput
-            style={styles.input}
-            placeholder="Senha"
-            keyboardType="number-pad"
-            secureTextEntry={true}
-            maxLength={6}
-            value={senha}
-            onChangeText={setSenha}
-        />
-        <View style={styles.buttonContainer}> 
-            <Button
-                title="Sing In"
-                onPress={() => validacao(nome,senha)}
+    return (
+        <View style={styles.container}>
+            <Text style={styles.title}>Bem Vindo de Volta!</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Nome"
+                value={nome}
+                onChangeText={setNome}
             />
+            <TextInput
+                style={styles.input}
+                placeholder="Senha:Digite seis números"
+                keyboardType="number-pad"
+                secureTextEntry={true}
+                maxLength={6}
+                value={senha}
+                onChangeText={setSenha}
+            />
+            <TouchableOpacity style={styles.buttonContainer} onPress={validacao}>
+                <Text style={styles.botao} >Login</Text>
+            </TouchableOpacity>
+
         </View>
-    </View>
-  );
+    );
 }
 
 const styles = StyleSheet.create({
@@ -51,25 +51,37 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#F5F5F5",
+        backgroundColor: "#BDBDBD",
     },
     title: {
         fontSize: 26,
-        marginBottom:50,
+        marginBottom: 50,
     },
     input: {
         height: 40,
-        width:windowWidth * 0.5,
+        width: windowWidth * 0.5,
         borderColor: '	#BDBDBD',
         borderWidth: 1,
         marginBottom: 12,
         paddingHorizontal: 8,
         borderRadius: 5,
-  },
+    },
+    botao: {
+        height: 50,
+        width:windowWidth * 0.5,
+        borderColor: '	#BDBDBD',
+        backgroundColor: '#BDBDBD',
+        borderWidth: 1,
+        marginBottom: 12,
+        borderRadius: 5,
+        textAlign: "center",
+        paddingTop: 10,
+        fontSize: 20,
+    },
     buttonContainer: {
-        backgroundColor: "#2D2D2D",
+        height: 40,
         width: windowWidth * 0.5,
-        margin: 10,
+        margin: 15,
         borderRadius: 5,
     },
 });

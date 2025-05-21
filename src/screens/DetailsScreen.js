@@ -1,18 +1,15 @@
 import React from "react";
-import { View, Text, Button, StyleSheet,Dimensions } from "react-native";
+import { View, Text,  StyleSheet,Dimensions,TouchableOpacity,Image } from "react-native";
 
 const windowWidth = Dimensions.get('window').width;
 
 export default function DetailsScreen({ navigation }) {
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Details Screen</Text>
-        <View style={styles.buttonContainer}> 
-            <Button
-                title="Go Back"
-                onPress={() => navigation.goBack("Home")}
-            />
-        </View>
+        <Image source={require('../../assets/IconDetails.png')} style={styles.Image} />
+        <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate("Profile")}>
+            <Text style={styles.botao} >Go back</Text>
+        </TouchableOpacity>
     </View>
   );
 }
@@ -22,16 +19,35 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#f0f8ff",
+        backgroundColor: "#BDBDBD",
     },
     title: {
         fontSize: 24,
         marginBottom: 20,
     },
+    botao: {
+        height: 50,
+        width: windowWidth * 0.5,
+        borderColor: '	#BDBDBD',
+        backgroundColor: '#BDBDBD',
+        borderWidth: 1,
+        marginBottom: 12,
+        borderRadius: 5,
+        textAlign: "center",
+        paddingTop: 10,
+        fontSize: 20,
+    },
+    Image: {
+        width: 100,
+        height: 100,
+        marginBottom: 10,
+    },
     buttonContainer: {
-        backgroundColor: "#add8e6",
+        height: 30,
         width: windowWidth * 0.5,
         margin: 10,
+        paddingTop: 50,
+        paddingBottom: 30,
         borderRadius: 5,
     },
 });
