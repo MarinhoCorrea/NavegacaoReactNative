@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import HomeScreen from "./HomeDrawer";
 const windowWidth = Dimensions.get('window').width;
 
 export default function LoginScreen({ navigation }) {

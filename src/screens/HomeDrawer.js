@@ -4,6 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import DetailsScreen from "./DetailsScreen";
 import ProfileScreen from './ProfileScreen';
 import HomeScreen from "./HomeScreen";
+import LogoutScreen from "./LogoutScreen";
 const windowWidth = Dimensions.get('window').width;
 const Drawer = createDrawerNavigator();
 
@@ -11,8 +12,9 @@ export default function HomeDrawer() {
     return (
             <Drawer.Navigator initialRouteName="Home">
                 <Drawer.Screen name="Home" component={HomeScreen} />
-                <Drawer.Screen name="Perfil" component={ProfileScreen} />
-                <Drawer.Screen name="Sobre" component={DetailsScreen} />
+                <Drawer.Screen name="Profile" component={ProfileScreen} />
+                <Drawer.Screen name="About" component={DetailsScreen} />
+                <Drawer.Screen name="Logout" component={LogoutScreen} />
             </Drawer.Navigator>
     );
 }
