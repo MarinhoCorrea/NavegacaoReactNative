@@ -1,19 +1,12 @@
 import React from "react";
-import { View, Text, Button, StyleSheet, Dimensions, TouchableOpacity , Image} from "react-native";
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity , Image} from "react-native";
 
 const windowWidth = Dimensions.get('window').width;
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen() {
     return (
         <View style={styles.container}>
             <Image source={require('../../assets/IconHome.png')} style={styles.Image} />
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate("Profile")}>
-                <Text style={styles.botao} >Go to Profile</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate("Login")}>
-                <Text style={styles.botao} >Go logout</Text>
-            </TouchableOpacity>
         </View>
     );
 }

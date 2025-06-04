@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import HomeScreen from "./HomeDrawer";
 const windowWidth = Dimensions.get('window').width;
 
 export default function LoginScreen({ navigation }) {
@@ -11,7 +12,7 @@ export default function LoginScreen({ navigation }) {
         const storedSenha = await AsyncStorage.getItem('Senha');
 
         if (nome === storedNome && senha === storedSenha) {
-            navigation.navigate("Home");
+            navigation.navigate("HomeDrawer");
         } else if (nome.length === 0 && senha.length === 0) {
             alert("Nome e senha não podem ser vazios");
         } else if (nome.length === 0) {

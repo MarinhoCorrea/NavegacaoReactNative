@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const windowWidth = Dimensions.get('window').width;
 
-export default function CadastroScreen({ navigation }) {
+export default function CadastroScreen({navigation}) {
     const [nome, setNome] = React.useState("");
     const [senha, setSenha] = React.useState("");
     function validacao() {
