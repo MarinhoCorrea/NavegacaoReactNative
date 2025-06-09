@@ -1,5 +1,4 @@
-import React from "react";
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import DetailsScreen from "./DetailsScreen";
 import ProfileScreen from './ProfileScreen';
@@ -15,6 +14,7 @@ export default function HomeDrawer() {
                 <Drawer.Screen name="Profile" component={ProfileScreen} />
                 <Drawer.Screen name="About" component={DetailsScreen} />
                 <Drawer.Screen name="Logout" component={LogoutScreen} />
+                
             </Drawer.Navigator>
     );
 }

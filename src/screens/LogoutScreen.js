@@ -4,16 +4,19 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const windowWidth = Dimensions.get('window').width;
 
 export default function LogoutScreen({ navigation }) {
+     const apagarCadastro = async () => {
+        await AsyncStorage.removeItem('Nome');
+        await AsyncStorage.removeItem('Senha');
+        navigation.navigate("Cadastro");
+    };
     return (
         <View style={styles.container}>
             <Image source={require('../../assets/Logout.png')} style={styles.Image} />
             <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate("Login")}>
                 <Text style={styles.botao} >Sair</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate("Cadastro")}>
-                <Text style={styles.botao} >Apagar Cadastro</Text>
-                    {AsyncStorage.removeItem('Nome')}
-                    {AsyncStorage.removeItem('Senha')}
+            <TouchableOpacity style={styles.buttonContainer} onPress={apagarCadastro}>
+                <Text style={styles.botao} >Apagar Cadastro</Text>   
             </TouchableOpacity>
         </View>
     );
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         height: 40,
         width: windowWidth * 0.5,
-        margin: 5,
+        margin: 20,
         borderRadius: 5,
         
     },

@@ -10,10 +10,14 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Cadastro">
-          <Stack.Screen name="Cadastro" component={CadastroScreen} options={{headerShown: false}} />
-          <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-          <Stack.Screen name="HomeDrawer" component={HomeScreen} options={{headerShown: false}} />
+        <Stack.Navigator 
+          initialRouteName="Cadastro"
+          screenOptions={{
+            headerShown: false, // Esconde o cabeçalho padrão
+          }}>
+          <Stack.Screen name="Cadastro" component={CadastroScreen} />
+          <Stack.Screen name="Login" component={LoginScreen}  />
+          <Stack.Screen name="HomeDrawer" component={HomeScreen}  />
         </Stack.Navigator>
       </NavigationContainer>
   );

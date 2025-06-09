@@ -23,7 +23,7 @@ export default function CadastroScreen({navigation}) {
     }
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Olá,Cadastre-se!</Text>
+            <Text style={styles.title}>Cadastre-se!</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Nome"
