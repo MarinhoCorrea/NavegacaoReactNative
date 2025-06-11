@@ -1,21 +1,60 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import DetailsScreen from "./DetailsScreen";
 import ProfileScreen from './ProfileScreen';
 import HomeScreen from "./HomeScreen";
 import LogoutScreen from "./LogoutScreen";
+import CustomDrawer from "../components/CustomDrawer";
+import { Header } from "@react-navigation/stack";
 const windowWidth = Dimensions.get('window').width;
 const Drawer = createDrawerNavigator();
 
 export default function HomeDrawer() {
     return (
-            <Drawer.Navigator initialRouteName="Home">
-                <Drawer.Screen name="Home" component={HomeScreen} />
-                <Drawer.Screen name="Profile" component={ProfileScreen} />
-                <Drawer.Screen name="About" component={DetailsScreen} />
-                <Drawer.Screen name="Logout" component={LogoutScreen} />
-                
-            </Drawer.Navigator>
+        <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}
+            initialRouteName="Home"
+            screenOptions={{
+                headerShown: true,
+                drawerActiveBackgroundColor: '#BDBDBD',
+                drawerActiveTintColor: '#fff',
+                drawerInactiveTintColor: '#000',
+                drawerLabelStyle: {
+                    fontSize: 15,
+                },
+            }}>
+            <Drawer.Screen name="Home"
+                component={HomeScreen}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <Ionicons name="home-outline" size={22} color={color} />
+                    ),
+                }}
+            />
+            <Drawer.Screen name="Profile"
+                component={ProfileScreen}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <Ionicons name="person-outline" size={22} color={color} />
+                    ),
+                }} />
+            <Drawer.Screen name="About"
+                component={DetailsScreen}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <Ionicons name="list" size={22} color={color} />
+                    ),
+                }} />
+            <Drawer.Screen name="Logout"
+                component={LogoutScreen}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <Ionicons name="log-out" size={22} color={color} />
+                    ),
+                }} />
+
+        </Drawer.Navigator>
     );
 }
 
