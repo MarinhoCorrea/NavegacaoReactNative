@@ -36,9 +36,13 @@ Aplicativo de vizualização de diferentes telas com navegação entre elas
 ## 🧰 Pré Requisítos
 
 • Node.js 
+
 • IDE ( Exemplo: VS Code)
+
 • Expo Go (App Mobile que permite vizualização do projeto no celular) 
+
 • NPM
+
 • GIT 
 
 ---
